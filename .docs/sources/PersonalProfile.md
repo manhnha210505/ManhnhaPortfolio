@@ -9,7 +9,7 @@
 - Ngày sinh: 21/05/2005
 - Địa điểm hiện tại: Biên Hòa, Đồng Nai
 - Email liên hệ: manhnha210505@gmail.com
-- Số điện thoại: 0359192915
+- Số điện thoại:
 - LinkedIn:
 - GitHub: https://github.com/manhnha210505
 - Các mạng xã hội khác muốn public:
@@ -32,8 +32,6 @@ Với mỗi bằng cấp:
 - Thời gian (từ - đến): 2023 - 2027
 - GPA / xếp loại (nếu muốn hiển thị): 3.4/4.0
 - Môn học/đồ án nổi bật liên quan đến DS/ML:
-  - **Tin học cơ bản (CS)**
-  - ***
 
 ## 4. Kỹ năng
 
@@ -140,5 +138,5 @@ Với mỗi giải thưởng:
 
 ## 10. Sở thích (Hobbies)
 
-- Sở thích cá nhân: Tìm hiểu công nghệ mới, nấu ăn, Pokemon,
+- Sở thích cá nhân: Hiện tại thì đang đam mê việc tìm hiểu các công nghệ AI mới. Thích ngồi hàng h để viết Code, ngoài ra còn có sở thích nấu ăn, thích được làm quen thêm nhiều người.
 - Có muốn hiển thị phần này công khai trên site không? (một số portfolio đưa vào About để tạo cảm giác con người, một số bỏ qua để giữ chuyên nghiệp)
