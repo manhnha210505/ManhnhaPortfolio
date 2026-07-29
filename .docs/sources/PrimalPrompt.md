@@ -186,7 +186,7 @@ Tôi đang muốn xây dựng một trang web để giới thiệu bản thân m
 
 Supabase sẽ cung cấp:
 
-* 1. Authentication
+- 1. Authentication
   2. PostgreSQL Database
   3. Row Level Security (RLS)
   4. Storage metadata
@@ -206,7 +206,7 @@ Supabase sẽ cung cấp:
 
 Cloudflare should be responsible for:
 
-* 1. DNS
+- 1. DNS
   2. CDN
   3. SSL
   4. HTTP/3
@@ -220,7 +220,7 @@ Cloudflare should be responsible for:
 
 Cloudflare R2 should store:
 
-* 1. Images
+- 1. Images
   2. Portfolio thumbnails
   3. Blog images
   4. Certificates
