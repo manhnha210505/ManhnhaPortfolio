@@ -79,8 +79,8 @@ htmlcov/
 temp/
 
 # Agents:
-.agents/skills
+#.agents/skills
 
 # speckit:
-.specify
+#.specify
 

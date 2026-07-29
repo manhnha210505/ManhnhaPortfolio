@@ -1,0 +1,13 @@
+Taste-skill: Kỹ năng thiết kế mặc định (thử nghiệm v2). Đọc bản tóm tắt, suy ra ngôn ngữ thiết kế, điều chỉnh ba mặt số (VARIANCE / MOTION / DENSITY) và gửi các trang đích, danh mục đầu tư và thiết kế lại trông không giống khuôn mẫu. Suy luận ngắn gọn, bản đồ hệ thống thiết kế, lệnh cấm em-dash, khung mã GSAP, kiểm tra các quy tắc cứng trước chuyến bay. Tích cực lặp lại hướng tới phiên bản ổn định v2.0.0.
+Taste-skill-v1: Phiên bản v1 ban đầu của Taste-skill, được giữ nguyên cho các dự án tùy thuộc vào hành vi chính xác của nó. Giá trị mặc định hiện tại là `design-taste-frontend` (thử nghiệm v2).
+gpt-taste: Thiết kế giao diện người dùng cấp độ Elite Awwwards và kỹ năng chuyển động GSAP để tạo giao diện người dùng cao cấp, xác định, chống trượt.
+image-to-code-skill: Kỹ năng giao diện người dùng hình ảnh đầu tiên để tạo các tham chiếu trang web cao cấp, phân tích sâu chúng và triển khai mã cho phù hợp.
+imagegen-frontend-web: Kỹ năng chỉ tạo hình ảnh để tạo hình ảnh tham khảo thiết kế trang web cao cấp. Không viết mã.
+imagegen-frontend-mobile: Kỹ năng chỉ tạo hình ảnh để tạo các luồng và khái niệm màn hình ứng dụng di động cao cấp. Không viết mã.
+brandkit: Kỹ năng chỉ tạo hình ảnh để tạo hình ảnh tổng quan về bộ thương hiệu cao cấp với các khái niệm logo, hệ thống nhận dạng, bảng màu, kiểu chữ và mô hình. Không viết mã.
+redesign-skill: Để nâng cấp các dự án hiện có bằng cách kiểm tra và khắc phục các vấn đề về thiết kế.
+kỹ năng mềm: Tập trung vào giao diện người dùng mềm mại, đắt tiền với phông chữ cao cấp, khoảng trắng, độ sâu và hình ảnh động mượt mà.
+kỹ năng đầu ra: Ngăn chặn AI lười biếng, bỏ qua các khối mã hoặc sử dụng các nhận xét giữ chỗ.
+kỹ năng tối giản: Thực thi các giao diện theo phong cách biên tập, rõ ràng (kiểu Notion/Linear) với các bảng màu đơn sắc nghiêm ngặt.
+kỹ năng tàn bạo: Giao diện cơ học thô, kiểu chữ Thụy Sĩ, độ tương phản quy mô cực cao. (Thử nghiệm)
+Stitch-skill: Quy tắc thiết kế ngữ nghĩa tương thích với Google Stitch để tạo giao diện người dùng AI cao cấp.
