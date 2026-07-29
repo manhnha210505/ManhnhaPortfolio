@@ -13,6 +13,9 @@
 # Trash:
 .Trashes
 
+# Git/Github:
+.gitignore
+
 # Temporary files:
 
 .fseventsd
