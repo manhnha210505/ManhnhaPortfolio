@@ -17,9 +17,9 @@ Full rationale for each choice lives in `docs/decisions/ADR-0001` through `ADR-0
 - React Three Fiber — **only if** the chosen signature element (see `foundation/ProductRequirements.md` open decisions) requires 3D. Do not add as a baseline dependency.
 
 ## Backend — Supabase
-- PostgreSQL database (`projects`, `contacts` tables provisioned)
-- Row Level Security (RLS) on all tables
-- Auth (reserved for future admin/CMS use, not required for public site)
+- PostgreSQL database — `profile`, `education`, `skills`, `projects`, `certificates`, `activities`, `awards`, `contacts`. Full schema in `architecture/schema.sql` / `architecture/DatabaseSchema.md`.
+- Row Level Security (RLS) on all tables — public read-only on content tables, insert-only on `contacts`, no public write access anywhere else.
+- **Auth is NOT used for a site admin flow.** Content is edited directly via the Supabase Dashboard Table Editor (owner's own Supabase login), not through a custom authenticated route in the app. See `docs/decisions/ADR-0006-Content-Storage-Strategy.md`.
 - Edge Functions where server-side logic is needed (e.g. contact form spam checks)
 
 ## Infrastructure

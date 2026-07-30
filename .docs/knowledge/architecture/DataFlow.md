@@ -1,10 +1,15 @@
 # Data Flow
 
-## Projects content
-1. Project rows authored/edited in Supabase `projects` table (or a lightweight internal admin, future scope).
-2. Images referenced by URL point to Cloudflare R2.
-3. Next.js fetches project data at build/ISR time (preferred) or via server component fetch on request.
-4. Rendered as case-study cards → detail view, per `docs/playbooks/ProjectsSection.md`.
+## Profile & content data (profile, education, skills, projects, certificates, activities, awards)
+1. All editable content lives in Supabase tables — schema in `architecture/DatabaseSchema.md`.
+2. **Editing path**: owner logs into the Supabase Dashboard → Table Editor → edits rows directly. No route in the app performs writes to these tables (see ADR-0006). This is a deliberate simplification, not a gap.
+3. **Read path**: Next.js fetches via `lib/supabase/` (server-side, using the anon key — RLS restricts it to read-only) at build/ISR time, preferred over client-side fetch for performance and SEO.
+4. Images referenced by URL (`profile.avatar_url`, `projects.cover_image_url`, etc.) point to Cloudflare R2.
+5. Content changes appear on next ISR revalidation — no deploy needed.
+
+## Projects content (specific case)
+1. Project rows in the `projects` table — see profile/content flow above for the general editing pattern.
+2. Rendered as case-study cards → detail view, per `docs/playbooks/ProjectsSection.md`.
 
 ## Contact form
 1. Visitor submits form (client-side validation first — required fields, email format).
