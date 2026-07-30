@@ -1,12 +1,15 @@
 # Color System
 
-## Current direction (not yet locked)
-Dark theme with a single accent color (green under discussion). This is a **reasonable starting hypothesis**, not a final decision — see the genericness risk noted in `DesignPhilosophy.md`.
+## Chosen direction: dark + cyan technical accent
+Dark theme confirmed, with the accent hue set to **cyan/blue** — evokes radar/technical-display screens rather than a generic brand-blue or the even more generic dark-mode default of green. This directly ties into the Mecha Typography system (`design/MechaTypographySystem.md`): corner brackets, section index numbers, status tags, and schematic linework all render in this accent, giving the color a *functional* role (it means "system readout") rather than being decorative.
 
-## Before locking the palette, resolve
-1. Does the accent hue connect to anything specific about ManhNha's identity (a project domain, a personal signature, a deliberate contrast to the Apple/Linear/Stripe norm of blue/purple/green defaults)? If the answer is "it just looked good," push further.
-2. Test the accent against **data-visualization use cases** — if the signature element is a chart/graph, the accent needs to work as a categorical/sequential palette anchor, not just a UI highlight color.
-3. Confirm contrast ratios meet WCAG AA at minimum (`engineering/Accessibility.md`) across all states (default, hover, disabled, on-dark, on-light if any light surfaces exist).
+## Semantic vs. accent separation
+Because cyan is now doing double duty as both brand accent *and* "HUD active" signal, keep `semantic.success` as a distinct green (not cyan) to avoid ambiguity between "this is styled as a system element" and "this succeeded." Reserve a secondary amber/orange strictly for `semantic.warning` and `semantic.error`-adjacent status tags (e.g. a `[TEAM PROJECT]` tag could use a neutral/amber tone rather than cyan, to visually distinguish "context label" from "primary accent") — confirm this distinction during implementation rather than defaulting everything to cyan.
+
+## Before finalizing exact hex values, resolve
+1. Contrast-check the chosen cyan against the dark background at all required states (default, hover, focus-visible ring) — cyan-on-near-black often needs a slightly desaturated/lightened value to hit WCAG AA (`engineering/Accessibility.md`), a fully saturated "neon" cyan will likely fail.
+2. Confirm the cyan reads well both as fine linework (1px schematic lines, corner brackets) and as larger fills (buttons, active nav indicator) — test both before locking the token.
+3. Test the accent against the **data-visualization use case** — if the signature element is a chart/graph, the accent needs to work as a categorical/sequential palette anchor alongside the `data-viz` palette below, not compete with it.
 
 ## Structure (define regardless of final hues)
 - `background` — base, elevated, overlay layers (dark theme needs at least 2–3 elevation steps to avoid flatness).
