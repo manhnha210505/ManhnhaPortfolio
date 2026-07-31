@@ -1,50 +1,50 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: Initial → v1.0.0
+- List of modified principles:
+  - Principle I: Functional Correctness (Priority 1)
+  - Principle II: Maintainability (Priority 2)
+  - Principle III: Accessibility (Priority 3)
+  - Principle IV: Performance (Priority 4)
+- Added sections: AI Agent Governance, Governance & Amendment
+- Removed sections: N/A
+- Templates requiring updates:
+  - .specify/templates/plan-template.md: ✅ aligned
+  - .specify/templates/spec-template.md: ✅ aligned
+  - .specify/templates/tasks-template.md: ✅ aligned
+- Follow-up TODOs: None
+-->
+
+# ManhnhaPortfolio Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Functional Correctness (Priority 1 - Highest)
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+The site MUST work: forms submit, data loads, links resolve, and no critical functions are broken. Correctness overrides all visual or technical tradeoffs.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Maintainability (Priority 2)
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+Code and content structure MUST remain simple enough to extend (new projects, new sections, i18n Phase 2) without requiring a complete rebuild. Visual complexity MUST NEVER justify architectural complexity.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Accessibility (Priority 3)
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Accessibility MUST NEVER be sacrificed for aesthetics, motion, or design trends. All interactive and content elements MUST adhere to accessibility guidelines (see `engineering/Accessibility.md`).
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Performance (Priority 4)
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+Performance budgets MUST be preserved. Decorative effects and heavy visual assets MUST be cut before performance budgets are compromised (see `engineering/Performance.md`).
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## AI Agent Governance
 
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+Any AI coding agent (Antigravity or any spec-kit-driven agent) working on this repository MUST resolve decision conflicts using the exact priority ordering above: Functional Correctness > Maintainability > Accessibility > Performance.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+If any design or enhancement tool (e.g., `taste-skill`) suggests changes that compromise higher-priority principles, the enhancement MUST be rejected or scoped down (refer to `governance/TasteRules.md` and `governance/AgentRules.md`).
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+## Governance & Amendment
+
+This constitution supersedes all non-constitutional development practices.
+
+Amendments to this constitution require an explicit, deliberate decision by the project owner (ManhNha) — amendments MUST NOT be made silently during implementation. If an agent encounters a priority conflict that appears to require a constitutional change, it MUST flag the issue for owner review rather than resolving it unilaterally.
+
+**Version**: 1.0.0 | **Ratified**: 2026-07-30 | **Last Amended**: 2026-07-30
