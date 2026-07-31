@@ -18,7 +18,10 @@ Low-friction path to reach out — see `architecture/DataFlow.md` for the techni
 **Not shown publicly:** phone number (per your decision — keep off-site, share directly when needed).
 
 ## Form fields
-Name, Email, Message (minimal — don't add fields that create friction). Client-side validation first, then server-side (see `architecture/DataFlow.md`).
+Name, Email, Message (minimal — don't add fields that create friction), plus a hidden honeypot field. Client-side validation first, then server-side layered defense — honeypot + rate limiting + Cloudflare Turnstile (locked via `/clarify`, see `decisions/ADR-0007-Contact-Spam-Protection.md`).
+
+## Turnstile fallback
+If Cloudflare Turnstile fails to load or fails verification, do not silently block the visitor. Show a clear message (e.g. "Having trouble with the form? Email me directly:") and surface the direct email address (manhnha210505@gmail.com) as an immediate fallback — never leave a visitor stuck with no way to reach out.
 
 ## States
 Success/error feedback via motion-appropriate micro-interaction (`motion/MicroInteractions.md`) — never rely on color alone (`engineering/Accessibility.md`).

@@ -12,11 +12,12 @@
 2. Rendered as case-study cards → detail view, per `docs/playbooks/ProjectsSection.md`.
 
 ## Contact form
-1. Visitor submits form (client-side validation first — required fields, email format).
-2. Submission goes to a server action / Edge Function, not a direct client Supabase insert.
-3. Server-side validation + basic spam/rate-limit check.
-4. Insert into Supabase `contacts` table (RLS: insert-only from server context, no public read).
-5. Success/error state surfaces via a motion-appropriate micro-interaction (see `motion/MicroInteractions.md`).
+1. Visitor submits form (client-side validation first — required fields, email format, honeypot field present but hidden from real users).
+2. **Layered spam defense (locked via `/clarify`, see `decisions/ADR-0007-Contact-Spam-Protection.md`)**: (a) honeypot field — reject if filled, (b) server-side rate limiting (per-IP), (c) Cloudflare Turnstile challenge verification. All three must pass before the submission proceeds.
+3. Submission goes to a server action / Edge Function, not a direct client Supabase insert.
+4. If Turnstile fails to load or verify, degrade gracefully: show a clear message and surface the direct email address as a fallback contact path — do not silently block the visitor with no alternative.
+5. Insert into Supabase `contacts` table (RLS: insert-only from server context, no public read).
+6. Success/error state surfaces via a motion-appropriate micro-interaction (see `motion/MicroInteractions.md`).
 
 ## Signature element (pending choice — see `foundation/ProductRequirements.md`)
 - If **live Supabase-fed metrics**: read-only aggregate query (e.g., visit counts, project counts) exposed via a safe, rate-limited endpoint — never expose raw table data.
