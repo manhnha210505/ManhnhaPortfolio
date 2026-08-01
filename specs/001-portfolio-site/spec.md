@@ -12,11 +12,10 @@
 
 - Q: What spam protection strategy should the contact form use? → A: Layered defense — honeypot field + server-side rate limiting + Cloudflare Turnstile (already in the Cloudflare stack, not a new dependency).
 - Q: How should project case-study detail views be displayed? → A: Inline expand/collapse on the same page (accordion or card expansion with smooth animation). No modals or separate routes.
-- Q: How should the project case-study body be stored? → A: Three separate text columns (`problem`, `approach`, `impact`) — each rendered independently with its own label. No Markdown parser needed.
 
 **Input**: User description: "Build a premium Awwwards-tier personal portfolio for ManhNha, a Data Science Engineer. Single-page site with Hero, About, Skills, Projects, Contact, Footer sections. Data backed by Supabase. Deployed on Cloudflare/Vercel. English first, Vietnamese-ready architecture."
 
-## User Scenarios & Testing *(mandatory)*
+## User Scenarios & Testing _(mandatory)_
 
 ### User Story 1 - Recruiter Quick Scan (Priority: P1)
 
@@ -122,7 +121,7 @@ A visitor accesses the portfolio on a mobile device (phone or tablet). All conte
 - What happens when a visitor uses a screen reader? All images MUST have alt text, all interactive elements MUST have accessible labels, and content order MUST be logical in the accessibility tree.
 - What happens when Cloudflare Turnstile fails to load or verify? The form MUST degrade gracefully — show a user-friendly message explaining the issue and provide an alternative contact method (direct email link).
 
-## Requirements *(mandatory)*
+## Requirements _(mandatory)_
 
 ### Functional Requirements
 
@@ -146,11 +145,11 @@ A visitor accesses the portfolio on a mobile device (phone or tablet). All conte
 
 ### Key Entities
 
-- **Project**: A portfolio project with title, preview description, meta (team size, role, course/context), case-study body as three separate fields (`problem`, `approach`, `impact` — each stored and rendered independently), tags/skills, image(s), links (GitHub repo, live demo), and display order.
+- **Project**: A portfolio project with title, preview description, meta (team size, role, course/context), case-study body (problem, approach, impact), tags/skills, image(s), links (GitHub repo, live demo), and display order.
 - **Contact Submission**: A message from a site visitor containing name, email, message body, and submission timestamp.
 - **Skill Category**: A grouping of related skills (e.g., "Data Science & Statistics") with a name, visual weight designation (core vs. secondary), and ordered list of individual skills.
 
-## Success Criteria *(mandatory)*
+## Success Criteria _(mandatory)_
 
 ### Measurable Outcomes
 
