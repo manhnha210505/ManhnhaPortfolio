@@ -14,7 +14,7 @@ Build a single-page, Awwwards-tier personal portfolio website for ManhNha, estab
 
 **Primary Dependencies**: Next.js 15 (App Router), React 19, Tailwind CSS v3, shadcn/ui primitives, `motion` (unified Motion library), `@supabase/supabase-js`
 
-**Storage**: Supabase PostgreSQL (data & schema in `architecture/schema.sql`), Cloudflare R2 (images & static assets)
+**Storage**: Supabase PostgreSQL (data & schema in `architecture/schema.sql`), Cloudflare R2 (images & static assets), Upstash Redis (rate limiting)
 
 **Testing**: Playwright (E2E & visual validation), Vitest (unit/component testing)
 
@@ -101,7 +101,7 @@ src/
 │   │   ├── client.ts
 │   │   └── server.ts
 │   └── utils/
-│       ├── rate-limit.ts      # In-memory / Edge rate limiter for contact form
+│       ├── rate-limit.ts      # Upstash Redis rate limiter for contact form
 │       └── cn.ts
 ├── content/                   # Centralized copy (i18n Phase 2 ready)
 │   └── en/

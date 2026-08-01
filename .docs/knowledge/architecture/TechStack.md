@@ -6,7 +6,7 @@ Full rationale for each choice lives in `docs/decisions/ADR-0001` through `ADR-0
 - **Antigravity IDE** — primary agentic dev environment.
 - **github/spec-kit** — constitution → spec → plan → tasks → implement workflow (see `governance/SpecKitRules.md`).
 - **Leonxlnx/taste-skill** — visual/interaction/motion quality layer, applied on top of spec-kit output, never in place of it.
-- ESLint + Prettier, Husky + lint-staged, GitHub Actions (CI), Dependabot **or** Renovate (pick one — running both is redundant and will fight over the same PRs), Playwright (E2E).
+- ESLint + Prettier, Husky + lint-staged, GitHub Actions (CI), Dependabot **or** Renovate (pick one — running both is redundant and will fight over the same PRs), Playwright (E2E testing), Vitest (unit/component testing — see `docs/decisions/ADR-0008-Unit-Testing-Vitest.md`).
 
 ## Frontend
 - Next.js (App Router)

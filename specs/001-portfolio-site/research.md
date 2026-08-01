@@ -70,7 +70,7 @@ All NEEDS CLARIFICATION items from Technical Context are resolved here. This fil
 
 **Decision**: Next.js Server Action (or Vercel Edge Function) + three-layer spam defense (ADR-0007, locked in spec clarification Q1):
 1. **Honeypot field** — hidden input, bot fills it → server silently rejects before any DB write.
-2. **Rate limiting** — per-IP cap over rolling window, enforced server-side.
+2. **Rate limiting** — per-IP cap over rolling window, enforced server-side via Upstash Redis (persistent across serverless instances/regions, replacing unreliable in-memory approach).
 3. **Cloudflare Turnstile** — challenge widget verified server-side before insert.
 
 **Turnstile flow**: Client renders Turnstile widget → on submit, Turnstile token included in request → server action calls Turnstile verification API → if pass, proceed to DB insert; if fail or widget fails to load, show user-friendly error + surface direct email fallback (`manhnha210505@gmail.com`).
@@ -103,9 +103,9 @@ All NEEDS CLARIFICATION items from Technical Context are resolved here. This fil
 
 ## R-008: i18n Architecture (Phase 1 English-only, Phase 2 Vietnamese-ready)
 
-**Decision**: All copy centralized in `src/content/` as typed objects (not hardcoded JSX strings). Directory structure reserves `src/app/[locale]/` for Phase 2. Do NOT install `next-intl` or other i18n library in Phase 1 — copy sourced from `content/` flat files is sufficient for English-only and keeps the bundle lean.
+**Decision**: All copy centralized in `src/content/` as typed objects (not hardcoded JSX strings). The `src/content/` abstraction is the primary Phase 1 preparation; the `[locale]/` route group will be introduced in Phase 2 when multi-locale routing is activated, rather than keeping an empty or non-functional folder in Next.js App Router during Phase 1. Do NOT install `next-intl` or other i18n library in Phase 1 — copy sourced from `content/` flat files is sufficient for English-only and keeps the bundle lean.
 
-**Phase 2 path**: Drop `next-intl` in later, point `content/` to locale-keyed files, uncomment `[locale]/` routing. No component restructuring needed if the content abstraction is clean from day 1.
+**Phase 2 path**: Introduce `next-intl` or App Router `[locale]/` segment in Phase 2, point `content/` to locale-keyed files (`content/en/`, `content/vi/`). No component restructuring needed since all string literals are already extracted into `src/content/`.
 
 ---
 

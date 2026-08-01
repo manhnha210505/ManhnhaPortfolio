@@ -26,6 +26,10 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon-key>
 # Cloudflare Turnstile
 NEXT_PUBLIC_TURNSTILE_SITE_KEY=<site-key>
 TURNSTILE_SECRET_KEY=<secret-key>  # server-only, never exposed to client
+
+# Upstash Redis (Rate Limiting)
+UPSTASH_REDIS_REST_URL="https://<endpoint>.upstash.io"
+UPSTASH_REDIS_REST_TOKEN="<token>"
 ```
 
 **Critical**: `TURNSTILE_SECRET_KEY` must NOT start with `NEXT_PUBLIC_` — it must remain server-side only.

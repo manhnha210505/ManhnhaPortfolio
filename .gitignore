@@ -1,86 +1,41 @@
-# VS Code:
-.vscode/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# macOS:
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
 .DS_Store
-.AppleDouble
-.LSOverride
-._*
+*.pem
 
-# Spotlight:
-.Spotlight-V100
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
-# Trash:
-.Trashes
+# env files (can opt-in for committing if needed)
+.env*
 
-# Git/Github:
-.gitignore
+# vercel
+.vercel
 
-# Temporary files:
-
-.fseventsd
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# Virtual environments
-venv/
-ENV/
-env/
-.env
-
-# IDE
-.idea/
-*.swp
-*.swo
-*~
-
-# Logs
-logs/
-*.log
-
-# Model weights and large files
-models/weights/
-backend/models/weights/
-frontend/models/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Temporary files
-.tmp/
-temp/
-
-# Agents:
-#.agents/skills
-
-# speckit:
-#.specify
-
+# typescript
+*.tsbuildinfo
+next-env.d.ts

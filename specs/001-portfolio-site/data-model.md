@@ -76,8 +76,14 @@ Derived from `schema.sql` (source of truth for SQL), `spec.md` (entity definitio
 **RLS**: `SELECT` for `anon` only.
 
 **Category grouping for UI** (from `SkillsSection.md`):
-- **Core** (large visual weight): `data_science`, `machine_learning`, `data_visualization`, `mlops`
-- **Secondary** (smaller visual weight): `backend`, `cloud`, `languages`, `frameworks`, `tools`
+
+| Display group | Categories included | Visual weight |
+|---|---|---|
+| **Core** | `data_science`, `machine_learning`, `data_visualization`, `mlops` | Primary / Large |
+| **Backend & Cloud** | `backend`, `cloud` | Secondary / Compact |
+| **Languages & Tools** | `languages`, `frameworks`, `tools` | Secondary / Compact |
+
+*Note: This mapping lives purely in the frontend presentation layer (e.g. a constant mapping in `components/sections/SkillsSection.tsx` or `lib/utils/`), NOT as a database column — `category` remains the atomic column in the `skills` table.*
 
 **Constraint**: `category` must match the allowed enum values — enforced by DB `CHECK` constraint in `schema.sql`.
 
