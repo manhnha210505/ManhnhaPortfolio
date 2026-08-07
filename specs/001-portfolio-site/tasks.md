@@ -22,12 +22,12 @@
 
 **Purpose**: Core infrastructure, types, Supabase clients, Mecha UI primitives, and centralized copy layer.
 
-- [ ] T005 Configure Supabase client setup in `src/lib/supabase/client.ts` and `src/lib/supabase/server.ts` with environment variables
-- [ ] T006 [P] Create TypeScript domain entity types and database interfaces in `src/types/portfolio.ts` and `src/types/database.ts`
-- [ ] T007 [P] Create centralized copy files in `src/content/en/` (`hero.ts`, `about.ts`, `skills.ts`, `projects.ts`, `contact.ts`, `footer.ts`, `meta.ts`)
-- [ ] T008 [P] Implement shared Motion variants and wrappers in `src/components/motion/motion-variants.ts`, `FadeIn.tsx`, and `StaggerReveal.tsx`
-- [ ] T009 [P] Implement Mecha Typography primitive components in `src/components/ui/panel-frame.tsx`, `section-index.tsx`, `status-tag.tsx`, and `schematic-connector.tsx`
-- [ ] T010 [P] Implement base shadcn/ui primitives in `src/components/ui/button.tsx`, `input.tsx`, and `textarea.tsx`
+- [x] T005 Configure Supabase client setup in `src/lib/supabase/client.ts` and `src/lib/supabase/server.ts` with environment variables
+- [x] T006 [P] Create TypeScript domain entity types and database interfaces in `src/types/portfolio.ts` and `src/types/database.ts`
+- [x] T007 [P] Create centralized copy files in `src/content/en/` (`hero.ts`, `about.ts`, `skills.ts`, `projects.ts`, `contact.ts`, `footer.ts`, `meta.ts`)
+- [x] T008 [P] Implement shared Motion variants and wrappers in `src/components/motion/motion-variants.ts`, `FadeIn.tsx`, and `StaggerReveal.tsx`
+- [x] T009 [P] Implement Mecha Typography primitive components in `src/components/ui/panel-frame.tsx`, `section-index.tsx`, `status-tag.tsx`, and `schematic-connector.tsx`
+- [x] T010 [P] Implement base shadcn/ui primitives in `src/components/ui/button.tsx`, `input.tsx`, and `textarea.tsx`
 
 ---
 
@@ -36,11 +36,11 @@
 **Goal**: Enable recruiters to understand identity ("Data Science Engineer"), view CTAs, navigate sticky sections, and read bio narrative within 10–20 seconds.
 **Independent Test**: Load site in fresh browser tab. Hero displays "Trần Đăng Mạnh" / "Data Science Engineer" within 3s, CTAs work, Navbar sticks and tracks scroll section.
 
-- [ ] T011 [P] [US1] Create unit tests for navigation state logic in `tests/unit/navbar.test.ts`
-- [ ] T012 [P] [US1] Implement sticky Navbar with Intersection Observer active section indicator in `src/components/navbar.tsx`
-- [ ] T013 [P] [US1] Implement Hero section component with staggered reveal animation and CTAs in `src/components/sections/HeroSection.tsx`
-- [ ] T014 [P] [US1] Implement About section component with bio narrative, HUFLIT education block, and hobbies line in `src/components/sections/AboutSection.tsx`
-- [ ] T015 [US1] Compose Hero, About, and Navbar in main page layout in `src/app/page.tsx` and `src/app/layout.tsx`
+- [x] T011 [P] [US1] Create unit tests for navigation state logic in `tests/unit/navbar.test.ts`
+- [x] T012 [P] [US1] Implement sticky Navbar with Intersection Observer active section indicator in `src/components/navbar.tsx`
+- [x] T013 [P] [US1] Implement Hero section component with staggered reveal animation and CTAs in `src/components/sections/HeroSection.tsx`
+- [x] T014 [P] [US1] Implement About section component with bio narrative, HUFLIT education block, and hobbies line in `src/components/sections/AboutSection.tsx`
+- [x] T015 [US1] Compose Hero, About, and Navbar in main page layout in `src/app/page.tsx` and `src/app/layout.tsx`
 
 ---
 
@@ -49,10 +49,10 @@
 **Goal**: Functional contact form with client validation, 3-layer spam defense (honeypot + rate-limiting + Turnstile), server action DB write, and email fallback.
 **Independent Test**: Fill form with valid data + Turnstile challenge → DB insert + success message. Invalid email → client error. Failed Turnstile → graceful fallback message with direct email link.
 
-- [ ] T016 [P] [US4] Implement unit tests for rate limiting (`tests/unit/rate-limit.test.ts`) and form validation schema (`tests/unit/contact-validation.test.ts`)
-- [ ] T017 [P] [US4] Implement server-side rate-limiting utility backed by Upstash Redis in `src/lib/utils/rate-limit.ts`
-- [ ] T018 [US4] Implement Contact form server action with honeypot check, rate limiting, Cloudflare Turnstile API verification, and Supabase `contacts` insert in `src/app/actions/contact.ts`
-- [ ] T019 [US4] Implement Contact section UI component with client validation, Turnstile widget integration, loading/success/error states, and email fallback in `src/components/sections/ContactSection.tsx`
+- [x] T016 [P] [US4] Implement unit tests for rate limiting (`tests/unit/rate-limit.test.ts`) and form validation schema (`tests/unit/contact-validation.test.ts`)
+- [x] T017 [P] [US4] Implement server-side rate-limiting utility backed by Upstash Redis in `src/lib/utils/rate-limit.ts`
+- [x] T018 [US4] Implement Contact form server action with honeypot check, rate limiting, Cloudflare Turnstile API verification, and Supabase `contacts` insert in `src/app/actions/contact.ts`
+- [x] T019 [US4] Implement Contact section UI component with client validation, Turnstile widget integration, loading/success/error states, and email fallback in `src/components/sections/ContactSection.tsx`
 
 ---
 
@@ -61,9 +61,9 @@
 **Goal**: Showcase Projects section with cards, meta (team size, role, course context), and inline-expandable case studies with Problem, Approach, Impact sections and quantified metrics. Also render Skills section grouped by Core, Backend & Cloud, and Languages & Tools.
 **Independent Test**: Navigate to Projects, open Image Captioning case study. Verify Problem, Approach (ViT encoder + Transformer decoder), Impact (BLEU-4 0.1883), and 4-member team context.
 
-- [ ] T020 [P] [US2] Implement unit tests for project data fetching & formatting in `tests/unit/projects.test.ts`
-- [ ] T021 [P] [US2] Implement Skills section component displaying Core (DS/ML/DataViz/MLOps), Backend & Cloud, and Languages & Tools display groups in `src/components/sections/SkillsSection.tsx` per `data-model.md`
-- [ ] T022 [US2] Implement Projects section component with project cards, `[TEAM PROJECT]` status tags, and inline accordion expand/collapse in `src/components/sections/ProjectsSection.tsx`
+- [x] T020 [P] [US2] Implement unit tests for project data fetching & formatting in `tests/unit/projects.test.ts`
+- [x] T021 [P] [US2] Implement Skills section component displaying Core (DS/ML/DataViz/MLOps), Backend & Cloud, and Languages & Tools display groups in `src/components/sections/SkillsSection.tsx` per `data-model.md`
+- [x] T022 [US2] Implement Projects section component with project cards, `[TEAM PROJECT]` status tags, and inline accordion expand/collapse in `src/components/sections/ProjectsSection.tsx`
 
 ---
 
