@@ -72,7 +72,7 @@
 **Goal**: Surface technical depth details in case studies (architecture reasoning, experimental rigor, known failure modes/limitations) and verified GitHub repository links.
 **Independent Test**: Read Image Captioning case study details for ViT vs CNN+RNN architecture rationale and failure modes (gender misclassification, repetition), verify GitHub link target.
 
-- [ ] T023 [US3] Add architecture reasoning (ViT self-attention vs CNN+RNN) and documented failure modes to Image Captioning & Spam Classification case studies in `src/content/en/projects.ts` and `src/components/sections/ProjectsSection.tsx`
+- [x] T023 [US3] Add architecture reasoning (ViT self-attention vs CNN+RNN) and documented failure modes to Image Captioning & Spam Classification case studies in `src/content/en/projects.ts` and `src/components/sections/ProjectsSection.tsx`
 
 ---
 

@@ -8,8 +8,14 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
+    include: ['tests/**/*.test.{ts,tsx}'],
+    // The repo lives on an exFAT/SMB volume where macOS writes `._*`
+    // AppleDouble sidecars next to every file. They are binary and break
+    // the transform if collected as tests.
+    exclude: ['**/node_modules/**', '**/.next/**', '**/._*'],
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(import.meta.dirname, './src'),
     },
   },
 })
+

@@ -1,11 +1,46 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+  /* --- Typography: families. The `*-face` vars are injected by next/font in
+     layout.tsx; the fallback stacks cover the pre-swap paint. --- */
+  --font-sans: var(--font-sans-face), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, monospace;
+  /* Falls back to the *sans* face, not mono: if `font-display` ever lands on
+     Vietnamese text by mistake, Orbitron's missing diacritics degrade to a
+     coherent wrong-font render rather than visibly spliced mixed-face text
+     mid-word. A loud failure that still looks broken to a recruiter is not a
+     safety net. (`--font-sans-face` is the next/font var name; "body face".) */
+  --font-display: var(--font-display-face), var(--font-sans-face), sans-serif;
 
+  /* --- Typography: scale (1.25 modular ratio, 16px base) --- */
+  --text-caption: 0.8rem;
+  --text-caption--line-height: 1.4;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.6;
+  --text-h3: 1.563rem;
+  --text-h3--line-height: 1.4;
+  --text-h2: 1.953rem;
+  --text-h2--line-height: 1.3;
+  --text-h1: 2.441rem;
+  --text-h1--line-height: 1.2;
+  --text-display: clamp(3rem, 8vw, 6rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.02em;
+
+  /* --- Spacing: 4px base. Tailwind v4 derives the whole scale from this
+     single value (p-1 = 4px, p-6 = 24px, …) — no per-step tokens needed. --- */
+  --spacing: 4px;
+
+  /* --- Color --- */
   --color-background: var(--background);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-overlay: var(--bg-overlay);
   --color-foreground: var(--foreground);
+  --color-fg-muted: var(--fg-muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-subtle: var(--accent-subtle);
@@ -17,15 +52,42 @@
   --color-semantic-warning: var(--semantic-warning);
   --color-semantic-error: var(--semantic-error);
 
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
-  --radius-lg: var(--radius-lg);
+  /* --- Radius --- */
+  --radius-sm: var(--radius-sm-v);
+  --radius-md: var(--radius-md-v);
+  --radius-lg: var(--radius-lg-v);
+
+  /* --- Elevation. Dark theme: shadows read as depth only when paired with a
+     lighter border, hence the low alpha. `glow` is the accent-focus ring. --- */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 16px 40px -8px rgb(0 0 0 / 0.6);
+  --shadow-glow: 0 0 0 1px var(--accent), 0 0 24px -4px var(--accent-subtle);
+
+  /* --- Motion: durations. 300–1200ms band per motion/AnimationPrinciples.md --- */
+  --duration-fast: 300ms;
+  --duration-base: 500ms;
+  --duration-slow: 900ms;
+
+  /* --- Motion: easing. Sharp entrances, no linear (AnimationPrinciples.md) --- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-mecha: cubic-bezier(0.2, 0.9, 0.1, 1);
 }
 
 @layer base {
   :root {
+    /* Three elevation steps — a flat single dark is the tell of a default
+       dark theme (ColorSystem.md § Structure). */
     --background: #09090b;
+    --bg-elevated: #111113;
+    --bg-overlay: #18181b;
+
+    /* Contrast vs --background: fg 19.1:1, fg-muted 7.8:1, accent 8.2:1,
+       accent-hover 5.4:1 — all AA text. Re-check on any hex change. */
     --foreground: #fafafa;
+    --fg-muted: #a1a1aa;
 
     /* Cyan technical accent */
     --accent: #06b6d4;
@@ -39,9 +101,9 @@
     --semantic-warning: #f59e0b;
     --semantic-error: #ef4444;
 
-    --radius-sm: 2px;
-    --radius-md: 6px;
-    --radius-lg: 12px;
+    --radius-sm-v: 2px;
+    --radius-md-v: 6px;
+    --radius-lg-v: 12px;
 
     /* Mecha specific */
     --clip-corner: 12px;
@@ -53,5 +115,26 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* SC-006 / WCAG 2.4.7 — one visible focus ring for every interactive
+     element. Do not remove per-component without a visible replacement. */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm-v);
+  }
+
+  /* FR-011 / Accessibility.md — global reduced-motion kill switch. Component
+     opt-outs go through the shared useReducedMotion hook, not new CSS. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
