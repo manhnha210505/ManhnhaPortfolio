@@ -1,5 +1,5 @@
 {
-  "name": "temp_app",
+  "name": "manhnha-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,17 +8,23 @@
     "start": "next start",
     "lint": "next lint",
     "test:unit": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.3.3",
     "@supabase/supabase-js": "^2.111.0",
+    "@upstash/ratelimit": "^2.0.8",
+    "@upstash/redis": "^1.38.2",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.28.0",
     "motion": "^12.43.0",
     "next": "15.5.22",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "tailwind-merge": "^3.6.0"
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -37,11 +43,5 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.10"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp",
-      "unrs-resolver"
-    ]
   }
 }
