@@ -18,6 +18,10 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      // macOS AppleDouble sidecars. This repo lives on an exFAT/SMB volume,
+      // so every write spawns a `._name` twin that ESLint tries to parse as
+      // source and fails on. Already gitignored; ignore it here too.
+      "**/._*",
     ],
   },
 ];

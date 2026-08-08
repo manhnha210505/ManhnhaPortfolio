@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Orbitron } from "next/font/google";
-import { meta } from "@/content/en/meta";
+import { meta, siteUrl } from "@/content/en/meta";
+import { getEducation, getProfile, getSkills } from "@/lib/data/portfolio";
+import { buildPersonJsonLd, serializeJsonLd } from "@/lib/utils/json-ld";
 import "../styles/globals.css";
 
 // Body/UI. The Vietnamese subset is required — the owner's name ("Trần Đăng
@@ -34,24 +36,55 @@ const orbitron = Orbitron({
   display: "swap",
 });
 
-// Minimal wiring only. Canonical URL, OG tags and the JSON-LD Person block
-// are T026 (research.md R-007); the strings already live in content/en/meta.ts.
+// T026 — research.md R-007. `metadataBase` makes the relative `/og.png` and
+// canonical `/` resolve to absolute URLs; without it Next emits a relative
+// og:image, which most crawlers drop.
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: meta.title,
   description: meta.description,
+  // Explicit, not inferred: Cloudflare in front of Vercel can serve the same
+  // build on two hostnames, and both would otherwise index (R-007).
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: meta.title,
+    title: meta.title,
+    description: meta.description,
+    locale: meta.locale,
+    images: [{ url: meta.ogImage, width: 1200, height: 630, alt: meta.ogImageAlt }],
+  },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Same rows page.tsx reads. Next dedupes the fetches within a render, and
+  // `safeQuery` never throws — an unreachable DB degrades JSON-LD to the
+  // content-layer values instead of failing the layout.
+  const [profile, skills, education] = await Promise.all([
+    getProfile(),
+    getSkills(),
+    getEducation(),
+  ]);
+  const jsonLd = serializeJsonLd(
+    buildPersonJsonLd({ profile, skills, education, siteUrl })
+  );
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} antialiased`}
       >
         {children}
+        {/* Safe because serializeJsonLd escapes `<` — see json-ld.ts. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLd }}
+        />
       </body>
     </html>
   );

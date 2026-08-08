@@ -81,9 +81,9 @@
 **Goal**: Render JSON-LD Person schema in `<head>`, semantic HTML landmark hierarchy, meta description, and Open Graph tags for search engines and AI tools.
 **Independent Test**: View source, verify `<script type="application/ld+json">` Person block with name, role, skills, and GitHub URL, single `<h1>` tag, and Open Graph tags.
 
-- [ ] T024 [P] [US5] Implement JSON-LD Person schema generator in `src/lib/utils/json-ld.ts`
-- [ ] T025 [P] [US5] Design and generate static Open Graph image (1200x630px, Mecha Typography system) at `public/og.png`
-- [ ] T026 [US5] Configure root metadata, Open Graph tags, canonical URL, and JSON-LD script injection in `src/app/layout.tsx` (depends on T025)
+- [x] T024 [P] [US5] Implement JSON-LD Person schema generator in `src/lib/utils/json-ld.ts`
+- [x] T025 [P] [US5] Design and generate static Open Graph image (1200x630px, Mecha Typography system) at `public/og.png`
+- [x] T026 [US5] Configure root metadata, Open Graph tags, canonical URL, and JSON-LD script injection in `src/app/layout.tsx` (depends on T025)
 
 ---
 
